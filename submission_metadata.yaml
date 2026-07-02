@@ -1,0 +1,74 @@
+# Redrob Hackathon — Submission Metadata
+
+team_name: "RankRight AI"
+
+primary_contact:
+  name: "Richa Maurya"
+  email: "10tanumaurya@gmail.com"
+  phone: "+91-6392948264"
+
+team_members:
+  - name: "Richa Maurya"
+    email: "10tanumaurya@gmail.com"
+    role: "ML Engineer / Solo Participant"
+
+# ============================================================================
+# Code and reproducibility
+# ============================================================================
+github_repo: "https://github.com/Richa13072013/redrob-ranker"
+
+sandbox_link: "TODO: add Colab/HuggingFace Spaces link here"
+
+reproduce_command: "python rank.py --candidates ./data/candidates.jsonl --out ./output/submission.csv"
+
+# ============================================================================
+# Compute environment
+# ============================================================================
+compute:
+  platform: "Local Windows laptop"
+  cpu_cores: 14
+  ram_gb: 16
+  python_version: "3.13.3"
+  os: "Windows 10"
+  uses_gpu_for_inference: false
+  has_network_during_ranking: false
+  pre_computation_required: false
+  pre_computation_time_minutes: 0
+
+# ============================================================================
+# AI tools declaration
+# ============================================================================
+ai_tools_used:
+  - "Claude"
+
+ai_usage_summary: |
+  Used Claude for architecture discussion, code review, debugging, and mentorship
+  throughout development. All code was written by the participant, guided step by
+  step by Claude. No candidate data was fed to any external LLM API — the ranking
+  pipeline runs entirely locally with no network access.
+
+# ============================================================================
+# Approach summary
+# ============================================================================
+methodology_summary: |
+  Hybrid ranking system combining structured feature scoring (title match, skill
+  evidence cross-checked against career history, experience band, location fit,
+  education tier) with a TF-IDF+SVD semantic similarity layer comparing career
+  narratives against two "ideal candidate" profiles (production-shipper and
+  technical-depth), blended 60/40 toward shipping per the JD's stated preference.
+  Honeypot and hard-disqualifier detection suppresses (rather than excludes)
+  suspicious or JD-disqualified profiles via a multiplicative penalty, since
+  rule-based detection is imperfect and hard exclusion risks false positives.
+  A behavioral multiplier from redrob_signals further adjusts scores based on
+  availability, engagement, and salary fit. Runtime is ~80 seconds for 100,000
+  candidates on a standard CPU laptop, no GPU or network required.
+
+# ============================================================================
+# Declarations
+# ============================================================================
+declarations:
+  read_submission_spec: true
+  code_is_original_work: true
+  no_collusion: true
+  honeypot_check_done: true
+  reproduction_tested: true
