@@ -17,7 +17,7 @@ team_members:
 # ============================================================================
 github_repo: "https://github.com/Richa13072013/redrob-ranker"
 
-sandbox_link: "TODO: add Colab/HuggingFace Spaces link here"
+sandbox_link: "https://colab.research.google.com/drive/1NOXUVXWKBPc0Zs2qqNDd1egGxkXQBV8c?usp=sharing"
 
 reproduce_command: "python rank.py --candidates ./data/candidates.jsonl --out ./output/submission.csv"
 
